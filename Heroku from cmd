@@ -17,7 +17,7 @@ steps:(command line steps)
       and write:-
       web: waitress-serve --port=$PORT airlines.wsgi:application
 	
-   c. pip freeze > requirements.txt
+   c. pip freeze >  requirements.txt
 
 8. git add -p
 9. git commit -m "...msg... commit"

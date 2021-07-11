@@ -1,0 +1,24 @@
+How do I host on Heroku from command line? 
+steps:(command line steps)
+1. heroku login => give access
+2. git init
+3. git add .
+4. git commit -m "initial commit"
+5. heroku create provide_unique_name
+6. heroku git:remote -a provide_unique_name
+
+7. make sure to install necessary packages(like whitenoise, waitress, pandas, etc.):-
+      for static files(STATIC_ROOT = BASE_DIR/'static') so,
+   a. pip install whitenoise add ('whitenoise.middleware.WhiteNoiseMiddleware') on middleware_section setting.py 
+      for more : http://whitenoise.evans.io/en/stable/
+
+   b. pip install waitress
+      after installation create 'Procfile' in inner-app-folder
+      and write:-
+      web: waitress-serve --port=$PORT airlines.wsgi:application
+	
+   c. pip freeze > requirements.txt
+
+8. git add -p
+9. git commit -m "...msg... commit"
+10. git push heroku master
